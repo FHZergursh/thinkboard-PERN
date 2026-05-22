@@ -1,15 +1,26 @@
 import { PenSquareIcon, Trash2Icon } from 'lucide-react'
-import React from 'react'
 import { Link } from 'react-router'
 
+interface NoteCardProps {
+  id: number
+  title: string
+  content: string
+}
 
-const NoteCardFixed = ({note}) => {
+const NoteCardFixed = (props : NoteCardProps) => {
+
+  const handleDelete = async () => {
+    
+  }
+
+
+
   return (
-    <Link to ={`/note/${note.id}`} className='card bg-base-100 hover:shadow-lg transition-all duration-200 border-t-4 border-solid border-[#00FF9D]'>
+    <Link to ={`/note/${props.id}`} className='card bg-base-100 hover:shadow-lg transition-all duration-200 border-t-4 border-solid border-[#00FF9D]'>
       <div className='card-body'>
-        <h3 className='card-title text-base-content'>{note.title}</h3>
-        <p className='text-base-content/70 line-clamp-3'>{note.content}</p>
-        <div className='caard-actions justify-between items-center mt-4'>
+        <h3 className='card-title text-base-content'>{props.title}</h3>
+        <p className='text-base-content/70 line-clamp-3'>{props.content}</p>
+        <div className='card-actions justify-between items-center mt-4'>
           <div className='flex items-center justify-between gap-1'>
             <PenSquareIcon className='size-4' />
             <button>

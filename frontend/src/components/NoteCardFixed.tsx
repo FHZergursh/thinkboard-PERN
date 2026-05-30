@@ -9,7 +9,15 @@ interface NoteCardProps {
 
 const NoteCardFixed = (props : NoteCardProps) => {
 
-  const handleDelete = async () => {
+  const handleDelete = async (e, id) => {
+
+    e.preventDefault()
+
+    if(!window.confirm("Are you sure you want to delete this note?")) {
+      return
+    }
+
+
     
   }
 
@@ -23,7 +31,7 @@ const NoteCardFixed = (props : NoteCardProps) => {
         <div className='card-actions justify-between items-center mt-4'>
           <div className='flex items-center justify-between gap-1'>
             <PenSquareIcon className='size-4' />
-            <button>
+            <button onClick={(e) => handleDelete(e, props.id)}>
               <Trash2Icon className='size-4' />
             </button>
           </div>
